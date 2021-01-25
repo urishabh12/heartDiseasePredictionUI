@@ -1,0 +1,32 @@
+export class Res {
+  age: number;
+  trestbps: number;
+  chol: number;
+  thalach: number;
+  oldpeak: number;
+  sex_0: number;
+  sex_1: number;
+  cp_0: number;
+  cp_1: number;
+  cp_2: number;
+  cp_3: number;
+  fbs_0: number;
+  fbs_1: number;
+  restecg_0: number;
+  restecg_1: number;
+  restecg_2: number;
+  exang_0: number;
+  exang_1: number;
+  slope_0: number;
+  slope_1: number;
+  slope_2: number;
+  ca_0: number;
+  ca_1: number;
+  ca_2: number;
+  ca_3: number;
+  ca_4: number;
+  thal_0: number;
+  thal_1: number;
+  thal_2: number;
+  thal_3: number;
+}

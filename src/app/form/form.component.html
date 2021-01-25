@@ -1,0 +1,112 @@
+<div class="main">
+  <div class="header">
+    <h1>HEART DISEASE PREDICTION</h1>
+  </div>
+  <div class="content">
+    <form [formGroup]="myForm" class="myForm">
+      <mat-form-field class="input">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" />
+        <mat-error *ngIf="age.invalid && age.touched">Required</mat-error>
+      </mat-form-field>
+      <mat-radio-group aria-label="Gender" class="radio" formControlName="sex">
+        <mat-label class="radio">Gender</mat-label>
+        <mat-radio-button value="1" class="female">Female</mat-radio-button>
+        <mat-radio-button value="0" class="male">Male</mat-radio-button>
+        <mat-error *ngIf="sex.invalid && attempted">Required</mat-error>
+      </mat-radio-group>
+      <mat-radio-group
+        aria-label="chest-pain"
+        class="radio"
+        formControlName="cp"
+      >
+        <mat-label class="radio">Chest Pain Type</mat-label>
+        <mat-radio-button value="0" class="female"
+          >Typical Angina</mat-radio-button
+        >
+        <mat-radio-button value="1" class="male"
+          >Atypical Angina</mat-radio-button
+        >
+        <mat-radio-button value="2" class="male"
+          >Non-Anginal Pain
+        </mat-radio-button>
+        <mat-radio-button value="3" class="male">Asymptomatic</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="input">
+        <mat-label>Resting Blood Pressure</mat-label>
+        <input matInput formControlName="trestbps" />
+        <mat-error *ngIf="trestbps.invalid && trestbps.touched"
+          >Required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Serum Cholestoral</mat-label>
+        <input matInput formControlName="chol" />
+      </mat-form-field>
+      <mat-radio-group aria-label="FBS" class="radio" formControlName="fbs">
+        <mat-label class="radio">Fasting Blood Sugar > 120 mg/dl</mat-label>
+        <mat-radio-button value="0" class="female">Yes</mat-radio-button>
+        <mat-radio-button value="1" class="male">No</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group
+        aria-label="restECG"
+        class="radio"
+        formControlName="restecg"
+      >
+        <mat-label class="radio">Resting ECG</mat-label>
+        <mat-radio-button value="0" class="female">Normal</mat-radio-button>
+        <mat-radio-button value="1" class="male"
+          >Having ST-T Wave Abnormality</mat-radio-button
+        >
+        <mat-radio-button value="2" class="male"
+          >Left Ventricular Hypertrophy
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="input">
+        <mat-label>Max Heart Rate Achieved</mat-label>
+        <input matInput formControlName="thalach" />
+      </mat-form-field>
+      <mat-radio-group aria-label="EIA" class="radio" formControlName="exang">
+        <mat-label class="radio">Exercise Induced Angina</mat-label>
+        <mat-radio-button value="0" class="female">Yes</mat-radio-button>
+        <mat-radio-button value="1" class="male">No</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="input">
+        <mat-label
+          >Old Peak (ST depression induced by exercise relative to
+          rest)</mat-label
+        >
+        <input matInput formControlName="oldpeak" />
+      </mat-form-field>
+      <mat-radio-group aria-label="slope" class="radio" formControlName="slope">
+        <mat-label class="radio"
+          >Slope: The slope of the peak exercise ST segment</mat-label
+        >
+        <mat-radio-button value="0" class="female">Up</mat-radio-button>
+        <mat-radio-button value="1" class="male">Flat</mat-radio-button>
+        <mat-radio-button value="2" class="male">Down</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group aria-label="ca" class="radio" formControlName="ca">
+        <mat-label class="radio">
+          CA: Number of major vessels colored by Flourosopy
+        </mat-label>
+        <mat-radio-button value="0" class="female">0</mat-radio-button>
+        <mat-radio-button value="1" class="male">1</mat-radio-button>
+        <mat-radio-button value="2" class="male">2</mat-radio-button>
+        <mat-radio-button value="3" class="male">3</mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group aria-label="thal" class="radio" formControlName="thal">
+        <mat-label class="radio"> Thalassemia </mat-label>
+        <mat-radio-button value="3" class="female">Normal</mat-radio-button>
+        <mat-radio-button value="6" class="male">Fixed Defect</mat-radio-button>
+        <mat-radio-button value="7" class="male"
+          >Reversable Defect</mat-radio-button
+        >
+      </mat-radio-group>
+
+      <button primary mat-button (click)="submit()">Predict</button>
+    </form>
+    <div class="result" *ngIf="show1">You don not have any Heart Disease</div>
+    <div class="result" *ngIf="show2">You do have a Heart Disease</div>
+  </div>
+</div>
