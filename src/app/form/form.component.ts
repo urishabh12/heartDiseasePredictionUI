@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PredictService } from '../predict.service';
 import { Res } from '../model';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -22,13 +24,19 @@ export class FormComponent implements OnInit {
   thall: number[];
   show1: boolean;
   show2: boolean;
+  username: string;
 
   constructor(
     private fb: FormBuilder,
-    private _predictService: PredictService
+    private _predictService: PredictService,
+    private auth: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    if (!this.auth.isAuthenticated()) {
+      this.router.navigateByUrl('login');
+    }
     this.myForm = this.fb.group({
       age: [null, [Validators.required]],
       sex: [null, [Validators.required]],
@@ -87,6 +95,7 @@ export class FormComponent implements OnInit {
       thal_3: null,
     };
     this.attempted = false;
+    this.username = this.auth.getUsername();
   }
 
   get age() {
@@ -181,7 +190,7 @@ export class FormComponent implements OnInit {
     this.res.thal_2 = this.thall[2];
     this.res.thal_3 = this.thall[3];
 
-    this._predictService.postData(this.res).subscribe((data) => {
+    this._predictService.postData(this.res, this.username).subscribe((data) => {
       if (data.result == 0) {
         this.show1 = true;
         this.show2 = false;
@@ -190,5 +199,10 @@ export class FormComponent implements OnInit {
         this.show1 = false;
       }
     });
+  }
+
+  logout() {
+    localStorage.removeItem('username');
+    this.router.navigateByUrl('login');
   }
 }

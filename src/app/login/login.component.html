@@ -1,0 +1,27 @@
+<div class="main">
+  <div>
+    <img src="../../assets/images/heartD.png" alt="Heart Image" />
+  </div>
+  <h1>Login</h1>
+  <div>
+    <form [formGroup]="myForm">
+      <mat-form-field class="input">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="username.invalid && username.touched"
+          >Required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+        <mat-error *ngIf="password.invalid && password.touched"
+          >Required</mat-error
+        >
+      </mat-form-field>
+      <p *ngIf="wrongInput">Username or Password Wrong</p>
+      <button primary mat-button (click)="login()">Login</button>
+      <a class="signup" (click)="signup()">Sign Up</a>
+    </form>
+  </div>
+</div>
