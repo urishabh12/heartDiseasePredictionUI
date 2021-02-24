@@ -108,11 +108,16 @@
     </form>
     <div class="result" *ngIf="show1">You don not have any Heart Disease</div>
     <div class="result" *ngIf="show2">You do have a Heart Disease</div>
+    <div class="result chart" *ngIf="show2 || show1">
+      <a (click)="chart()">Click here to view recommended Diet Chart</a>
+    </div>
   </div>
   <div class="footer">
     <div class="logout">
       <button mat-button (click)="logout()">Logout</button>
     </div>
-    <div class="history"><button mat-button>History</button></div>
+    <div class="history">
+      <button mat-button (click)="history()">History</button>
+    </div>
   </div>
 </div>

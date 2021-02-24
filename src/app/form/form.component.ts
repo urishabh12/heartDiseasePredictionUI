@@ -205,4 +205,12 @@ export class FormComponent implements OnInit {
     localStorage.removeItem('username');
     this.router.navigateByUrl('login');
   }
+
+  history() {
+    this.router.navigateByUrl('history');
+  }
+
+  chart() {
+    this.router.navigateByUrl('chart');
+  }
 }

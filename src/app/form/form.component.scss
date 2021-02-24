@@ -47,6 +47,14 @@
       padding: 30px;
       font-size: 20px;
       font-weight: bolder;
+      display: inline;
+      margin-right: 10px;
+    }
+    .chart {
+      color: #ffd740;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #ffd740;
+      cursor: pointer;
     }
   }
 

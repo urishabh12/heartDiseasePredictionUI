@@ -4,6 +4,7 @@ import { FormComponent } from './form/form.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HistoryComponent } from './history/history.component';
+import { DietchartComponent } from './dietchart/dietchart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'history', component: HistoryComponent },
+  { path: 'chart', component: DietchartComponent },
 ];
 
 @NgModule({

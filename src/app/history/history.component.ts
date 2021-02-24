@@ -15,9 +15,10 @@ export class HistoryComponent implements OnInit {
     private predictService: PredictService
   ) {}
 
-  history: any[];
+  dataSource: any[];
   username: string;
   displayedColumns: string[];
+  displayedColumnsTemp: string[];
 
   ngOnInit(): void {
     if (!this.auth.isAuthenticated()) {
@@ -25,6 +26,15 @@ export class HistoryComponent implements OnInit {
     }
     this.username = this.auth.getUsername();
     this.displayedColumns = [
+      'age',
+      'chol',
+      'dateTime',
+      'oldpeak',
+      'thalach',
+      'trestbps',
+      'result',
+    ];
+    this.displayedColumnsTemp = [
       'age',
       'ca_0',
       'ca_1',
@@ -59,8 +69,7 @@ export class HistoryComponent implements OnInit {
       'trestbps',
     ];
     this.predictService.getHistory(this.username).subscribe((res) => {
-      this.history = res;
-      console.log(Object.keys(res[0]));
+      this.dataSource = res;
     });
   }
 }

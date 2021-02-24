@@ -15,9 +15,21 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HistoryComponent } from './history/history.component';
 import { DietchartComponent } from './dietchart/dietchart.component';
+import {
+  MatTableModule,
+  MatHeaderRowDef,
+  MatRowDef,
+} from '@angular/material/table';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, LoginComponent, SignupComponent, HistoryComponent, DietchartComponent],
+  declarations: [
+    AppComponent,
+    FormComponent,
+    LoginComponent,
+    SignupComponent,
+    HistoryComponent,
+    DietchartComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +40,7 @@ import { DietchartComponent } from './dietchart/dietchart.component';
     MatInputModule,
     MatRadioModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
